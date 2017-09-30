@@ -11,22 +11,26 @@
 <body>
   <div class="contaazul">
     <header class="contaazul__header">
-      <h1 class="contaazul__logo">
-        <a class="contaazul__logo__link" href="/"><img src="/imgs/contaazul-logo.png" alt="Logo ContaAzul"></a>
-      </h1>
+      <div class="contaazul__header__container contaazul__container">
+        <h1 class="contaazul__logo">
+          <a class="contaazul__logo__link" href="/"><img src="/imgs/contaazul-logo.png" alt="Logo ContaAzul"></a>
+        </h1>
+      </div>
     </header>
     <section class="contaazul__content">
-      <div class="contaazul__row">
-        <button class="contaazul__btn contaazul__success" type="button">Novo carro</button>
-        <button class="contaazul__btn contaazul__danger" type="button">Excluir carro</button>
-
-        <%- include('components/search'); %>
-      </div>
-      <div class="contaazul__row">
-          <%- include('components/table'); %>
-      </div>
-      <div class="contaazul__row">
-          <%- include('components/pagination'); %>
+      <div class="contaazul__content__container contaazul__container">
+        <div class="contaazul__row">
+          <button class="contaazul__btn contaazul__success" type="button">Novo carro</button>
+          <button class="contaazul__btn contaazul__danger" type="button">Excluir carro</button>
+  
+          <%- include('components/search'); %>
+        </div>
+        <div class="contaazul__row">
+            <%- include('components/table'); %>
+        </div>
+        <div class="contaazul__row">
+            <%- include('components/pagination'); %>
+        </div>
       </div>
     </section>
   </div>
