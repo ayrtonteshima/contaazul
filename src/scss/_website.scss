@@ -22,6 +22,10 @@
     background-color: $dangerColor;
   }
 
+  &__align-right {
+    text-align: right;
+  }
+
   &__content {
     background-color: #F0F4F9;
   }
@@ -38,7 +42,6 @@
   &__logo {
     &__link {
       height: auto;
-      display: flex;
       align-items: center;
     }
 
@@ -76,6 +79,7 @@
 
     @include mq(medium) {
       width: auto;
+      margin-right: 25px;
     }
   }
 
@@ -84,6 +88,12 @@
     @include mq(medium) {
       padding: 0;
       float: right;
+    }
+  }
+
+  &__table {
+    .contaazul__align-right {
+      padding-right: 40px;
     }
   }
 }
