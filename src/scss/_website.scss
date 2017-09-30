@@ -9,6 +9,19 @@
     box-sizing: border-box;
   }
 
+  &__row {
+    height: auto;
+    overflow: hidden;
+  }
+
+  &__success {
+    background-color: $successColor;
+  }
+
+  &__danger {
+    background-color: $dangerColor;
+  }
+
   &__header {
     background-color: $brandColor;
     &__container {
@@ -24,9 +37,28 @@
       display: flex;
       align-items: center;
     }
+
     img {
       max-width: 120px;
       height: auto;
+    }
+  }
+
+  &__content {
+    padding: 20px 0;
+  }
+
+  &__btn {
+    width: 49%;
+    margin-right: 2%;
+    float: left;
+
+    &:nth-child(2) {
+      margin-right: 0;
+    }
+
+    @media screen and (min-width: 620px) {
+      width: auto;
     }
   }
 }
