@@ -1,0 +1,44 @@
+.contaazul__pagination {
+  border-radius: 3px;
+  background-color: #fff;
+  display: inline-block;
+  &__item {
+    float: left;
+    border-color: $borderColor;
+    border-style: solid;
+    border-width: 1px;
+    border-right-width: 0;
+    a {
+      display: block;
+      color: $textPrimaryColor;
+      box-sizing: border-box;
+      font: normal 12px/14px $primaryFont;
+      text-decoration: none;
+      padding: 11px 14px;
+      text-align: center;
+      margin-right: 2px;
+      &:focus {
+        outline: 0;
+      }
+    }
+    &:first-child {
+      border-radius: 3px 0 0 3px;
+    }
+    &:last-child {
+      border-right-width: 1px;
+      border-radius: 0 3px 3px 0;
+    }
+  
+    &:hover {
+      background-color: $hoverBgColor;
+    }
+
+    &--active {
+      background-color: $highlightedBgColor;
+      border-color: $highlightedBorderColor;
+      & + .contaazul__pagination__item {
+        border-left-color: $highlightedBorderColor;
+      }
+    }
+  }
+}
