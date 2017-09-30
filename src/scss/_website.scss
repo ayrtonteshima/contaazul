@@ -1,0 +1,32 @@
+.contaazul {
+  &__container {
+    max-width: $maxWidth;
+    height: auto;
+    overflow: hidden;
+    position: relative;
+    margin: 0 auto;
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
+
+  &__header {
+    background-color: $brandColor;
+    &__container {
+      height: 50px;
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__logo {
+    &__link {
+      height: auto;
+      display: flex;
+      align-items: center;
+    }
+    img {
+      max-width: 120px;
+      height: auto;
+    }
+  }
+}
