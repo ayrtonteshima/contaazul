@@ -8,7 +8,8 @@
   "license": "MIT",
   "scripts": {
     "start": "nodemon ./index --ignore ./src/js ./dist",
-    "build": "webpack"
+    "build": "webpack",
+    "watch": "webpack --watch"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
