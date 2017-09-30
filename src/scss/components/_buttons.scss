@@ -1,8 +1,10 @@
 .contaazul__btn {
+  height: 40px;
   border-radius: 3px;
   outline: 0;
   border: 0;
-  padding: 13px 35px;
+  padding: 0 35px;
   color: #fff;
+  white-space: nowrap;
   font: normal 14px/14px $primaryFont;
 }
