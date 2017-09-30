@@ -14,3 +14,8 @@ $maxWidth: 960px;
 
 $primaryFont: tahoma, verdana;
 $secondFont: arial;
+
+$breakpoints: (
+  small: 0,
+  medium: 620px,
+);
