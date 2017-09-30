@@ -33,7 +33,7 @@
       background-color: $hoverBgColor;
     }
 
-    &--active {
+    &--active, &--active:hover {
       background-color: $highlightedBgColor;
       border-color: $highlightedBorderColor;
       & + .contaazul__pagination__item {
