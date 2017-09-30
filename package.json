@@ -6,6 +6,9 @@
   "repository": "ssh://git@bitbucket.org/ayrtonteshima/desafio-contaazul.git",
   "author": "ayrtonteshima <ayrtonteshima@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "start": "nodemon ./index"
+  },
   "devDependencies": {
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.0",
