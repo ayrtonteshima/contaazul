@@ -9,6 +9,20 @@
     border-radius: 3px 0 0 3px;
     box-sizing: border-box;
     align-items: center;
+    color: $borderColor;
+    padding: 0 15px;
+    font-family: $secondFont;
+    font-size: 14px;
+    -webkit-font-smoothing: antialiased;
+    color: #aaa;
+    &:focus {
+      outline: 0;
+    }
+    &::placeholder {
+      font-size: 13px;
+      font-weight: normal;
+      color: #bbb;
+    }
   }
 
   &__btn-submit {
@@ -18,7 +32,11 @@
     border: 1px solid #c7d3dc;
     border-left: 0;
     border-radius: 0 3px 3px 0;
+    cursor: pointer;
     background: #F0F4F9 url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAMAAADXqc3KAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABX1BMVEUAAAAsXHwuXXotXHotXXotXXosXXosXnssXXkzZmYxYXkuXXotXXstW30tXHktXXosXnotXnktXXotXXstXXotXXosXXoAAAArW3gtXXotXHo5VXEtXXsuXHkkbW0tXXotXXotXnstX3gtXXotXXouXXwtXXstXXouXXwtXXotXXouXHoAgIAsXnovXnkrXHgtXHkrXHcuXXouXHtVVVUtXXouXnstXnotXnotXHssXnoxWHYtXXotXXkuW3suXXsvXnsgYIAtXXotXXosXnotXXkuXYAsXXotXXozZoAuXHwkW4BAQIAtXXotXnwrW3ktXXotXXosXXotXnouXHksX3guXHkuXXstXXotXXotXXouXXotXXotXnotXXswWnwsYXstXHstXXotXXouXXssXXstXXsrXnczVXcrXnopXHotXXkoXnktXXotXXouXXkuXnouXXstXnktXXoAAABbD8FQAAAAc3RSTlMAQHuu4eq4hVIFFa3OLVD+2qad0Pv5eQE1/KMJg2kH1fZPM+LzIYlxQsDuxAKWJiRhL1hZA/WLiMe5bRrkpDhNGwj6kmK9FuvjCicOBK9EKsvFrLR6Rj1wpfjsLGDw5yUdoNv9szSBHg9BGdQTn82odZw5jPGWJwAAAAFiS0dEAIgFHUgAAAAJcEhZcwAADdcAAA3XAUIom3gAAAAHdElNRQfhCR4SITAZ/nILAAABFElEQVQoz22RZ1MCMRRFVwULKmtBigWwYsHKir03FBR7r9h7Of9/xhDYNrPvS07uTW5eEkWRVVJa5nKXV1RWKbbyVFOsmlqr7nWDWlff0OiDJn/A0IMhaPbkqaVVWG26Ho4QbdcnHZ10dRe5B2JmbK9KXzGsn4G45cBBGJIwDCPWTkZhTEICbC1q4yQlTODTbJeaZEqO0zBjM2aZk+M8LFj1RfBLWFpmxWqsGgvXCAVNfX2D1GYBt6JE0rqe2YaEPomBa6eA2V3YM3bH98V7HxweHZ+cngk6vzCDL6/0/0Bsub4xndu7nCrU+4dH5UkEP1vbfHn1ZsN5SELuTXEq8b7vH05G4BO+0k6O9g0/jmGZ39TfP0HVQyw/HRveAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDE3LTA5LTMwVDE4OjMzOjQ4KzAyOjAwOgzA2QAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxNy0wOS0zMFQxODozMzo0OCswMjowMEtReGUAAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwaAAAAAElFTkSuQmCC') no-repeat center center;
     background-size: 12px;
+    &:active {
+      box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, .05) inset;
+    }
   }
 }
