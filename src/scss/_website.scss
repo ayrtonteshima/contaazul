@@ -16,10 +16,16 @@
 
   &__success {
     background-color: $successColor;
+    &:hover {
+      background-color: $successHoverColor;
+    }
   }
 
   &__danger {
     background-color: $dangerColor;
+    &:hover {
+      background-color: $dangetHoverColor;
+    }
   }
 
   &__align-right {

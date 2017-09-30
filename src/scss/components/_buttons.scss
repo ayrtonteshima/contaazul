@@ -8,4 +8,7 @@
   cursor: pointer;
   white-space: nowrap;
   font: normal 14px/14px $primaryFont;
+  &:active {
+    box-shadow: 0px -1px 5px 5px rgba(0, 0, 0, .1) inset;
+  }
 }
