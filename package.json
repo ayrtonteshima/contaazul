@@ -7,7 +7,7 @@
   "author": "ayrtonteshima <ayrtonteshima@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon ./index",
+    "start": "nodemon ./index --ignore ./src/js ./dist",
     "build": "webpack"
   },
   "devDependencies": {
