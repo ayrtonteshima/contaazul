@@ -1,0 +1,86 @@
+.contaazul__table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: separate;
+  border-radius: 3px 3px 0 0;
+  overflow: hidden;
+  color: $textPrimaryColor;
+  text-align: left;
+
+  th, td {
+    border-color: $borderColor;
+    border-style: solid;
+  }
+
+  th {
+    border-top: 1px solid $borderColor;
+    padding: 10px;
+    background-color: #F8FAFC;
+    font-weight: bold;
+    -webkit-font-smoothing: antialiased;
+    font: bold 12px/14px $primaryFont;
+    &:first-child {
+      border-left-width: 1px;
+      border-radius: 3px 0 0 0;
+    }
+
+    &:last-child {
+      border-right-width: 1px;
+      border-radius: 0 3px 0 0;
+    }
+  }
+
+  &__body {
+    background-color: #fff;
+    font: normal 14px/14px $primaryFont;
+  }
+
+  &__item {
+    &:last-child {
+      td {
+        border-bottom: 1px solid $borderColor;
+      }
+    }
+    td {
+      padding: 15px 10px;
+      border-top: 1px solid $borderColor;
+      &:first-child {
+        border-left: 1px solid $borderColor;
+      }
+
+      &:last-child {
+        border-right: 1px solid $borderColor;
+      }
+    }
+
+    &--active {
+      td {
+        background-color: $highlightedBgColor;
+        border-color: $highlightedBorderColor;
+        &:first-child {
+          border-left: 1px solid $highlightedBorderColor;
+        }
+  
+        &:last-child {
+          border-right: 1px solid $highlightedBorderColor;
+        }
+      }
+      + tr td {
+        border-top-color: $highlightedBorderColor;
+      }
+  
+      &:last-child {
+        td {
+          border-color: $highlightedBorderColor;
+          &:first-child {
+            border-left-width: 1px;
+          }
+    
+          &:last-child {
+            border-right-width: 1px;
+          }
+        }
+      }
+    }
+  }
+}
