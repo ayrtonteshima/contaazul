@@ -1,39 +1,7 @@
 .contaazul {
-  &__container {
-    max-width: $maxWidth;
-    height: auto;
-    overflow: hidden;
-    position: relative;
-    margin: 0 auto;
-    padding: 0 10px;
-    box-sizing: border-box;
-  }
-
-  &__row {
-    height: auto;
-    overflow: hidden;
-  }
-
-  &__success {
-    background-color: $successColor;
-    &:hover {
-      background-color: $successHoverColor;
-    }
-  }
-
-  &__danger {
-    background-color: $dangerColor;
-    &:hover {
-      background-color: $dangetHoverColor;
-    }
-  }
-
-  &__align-right {
-    text-align: right;
-  }
-
   &__content {
     background-color: #F0F4F9;
+    padding: 20px 0;
   }
 
   &__header {
@@ -54,16 +22,6 @@
     img {
       max-width: 120px;
       height: auto;
-    }
-  }
-
-  &__content {
-    padding: 20px 0;
-  }
-
-  @include mq(medium) {
-    &__actions {
-      float: left;
     }
   }
 
