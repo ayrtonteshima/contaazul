@@ -25,6 +25,9 @@
     background-color: $dangerColor;
     &:hover {
       background-color: $dangerHoverColor;
+      &:disabled {
+        background-color: $dangerColor;
+      }
     }
   }
 
