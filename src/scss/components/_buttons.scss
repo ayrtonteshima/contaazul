@@ -11,4 +11,9 @@
   &:active {
     box-shadow: 0px -1px 5px 5px rgba(0, 0, 0, .1) inset;
   }
+
+  &--sm {
+    @extend .contaazul__btn;
+    height: 30px;
+  }
 }
