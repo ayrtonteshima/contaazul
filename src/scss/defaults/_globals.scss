@@ -50,4 +50,31 @@
       height: 25px;
     }
   }
+  
+  &__form {
+    color: $textPrimaryColor;
+    -webkit-font-smoothing: antialiased;
+
+    .contaazul__row {
+      margin-top: 5px;
+    }
+
+    .contaazul__btn--sm {
+      margin-top: 5px;
+    }
+
+    &__title {
+      font: bold 16px/18px $primaryFont;
+    }
+
+    label {
+      font: normal 12px/14px $secondFont;
+      display: block;
+    }
+
+    &__textfield {
+      width: 100%;
+      margin-top: 2px;
+    }
+  }
 }
