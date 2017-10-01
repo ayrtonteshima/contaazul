@@ -43,6 +43,11 @@
   }
 
   &__item {
+    &:hover:not(.contaazul__table__item--active) {
+      td {
+        background-color: $hoverBgColor; 
+      }
+    }
     &:last-child {
       td {
         border-bottom: 1px solid $borderColor;
