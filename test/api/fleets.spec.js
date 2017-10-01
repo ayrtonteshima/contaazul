@@ -12,4 +12,20 @@ describe('Endpoint da api fleets', () => {
         .done(done);
     });
   })
+
+  describe('método GET', () => {
+    it ('deve retornar o contrato correto', function (done) {
+      frisby
+        .get(`${URL_BASE}/api/v1/fleets`)
+        .expect('jsonTypes', 'data.*', {
+          combustivel: Joi.string().required(),
+          imagem : Joi.optional(),
+          marca : Joi.string().required(),
+          modelo : Joi.string().required(),
+          placa : Joi.string().required(),
+          valor : Joi.string().required()
+        })
+        .done(done);
+    });
+  })
 });
