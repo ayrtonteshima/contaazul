@@ -48,6 +48,9 @@
     &--sm {
       @extend .contaazul__textfield;
       height: 25px;
+      padding: 0 5px;
+      font-size: 12px;
+      color: #000;
     }
   }
   
