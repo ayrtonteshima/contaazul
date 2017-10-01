@@ -9,7 +9,8 @@
   "scripts": {
     "start": "nodemon ./index --ignore ./src/js ./dist",
     "build": "webpack",
-    "watch": "webpack --watch"
+    "watch": "webpack --watch",
+    "test": "jest"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
