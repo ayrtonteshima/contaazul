@@ -1,11 +1,14 @@
 const mockFleets = require('./mock/fleetsMock'); 
 
 const getAll = () => (
-  new Promise((resolve) => (
-    resolve(mockFleets)
-  ))
+  Promise.resolve(mockFleets)
+);
+
+const save = (fleetData) => (
+  Promise.resolve(fleetData)
 );
 
 module.exports = {
   getAll,
+  save,
 }

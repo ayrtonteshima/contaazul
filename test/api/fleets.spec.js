@@ -26,4 +26,20 @@ describe('Endpoint da api fleets', () => {
         .done(done);
     });
   })
+
+  describe('método POST', () => {
+    it ('deve retornar 200', function (done) {
+      frisby
+        .post(`${URL_BASE}/api/v1/fleets`, {
+          combustivel: 'Gasolina',
+          imagem: null,
+          marca: 'Chery',
+          modelo: 'New QQ',
+          placa: 'AJT-1234',
+          valor: '30000'
+        })
+        .expect('status', 200)
+        .done(done);
+    });
+  });
 });

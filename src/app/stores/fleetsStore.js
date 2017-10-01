@@ -4,10 +4,25 @@ const getAll = () => (
   new Promise((resolve, reject) => {
     fleets.getAll()
       .then(resolve)
-      .catch(console.log);
+      .catch(({ message }) => {
+        console.error(message);
+        reject();
+      });
+  })
+);
+
+const save = (fleetData) => (
+  new Promise((resolve, reject) => {
+    fleets.save(fleetData)
+      .then(resolve)
+      .catch(({ message }) => {
+        console.error(message);
+        reject();
+      });
   })
 );
 
 module.exports = {
   getAll,
+  save,
 };
