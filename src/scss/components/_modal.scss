@@ -1,0 +1,48 @@
+.contaazul__modal {
+  &, &__curtain {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+  }
+  align-items: center;
+  position: fixed;
+  justify-content: center;
+  z-index: 2;
+  display: flex;
+  visibility: hidden;
+  transition: visibility .5s ease;
+  &__curtain {
+    background-color: #000;
+    opacity: 0;
+    transition: opacity .3s ease;
+  }
+  &__box {
+    min-width: 300px;
+    max-width: 600px;
+    width: 90%;
+    height: auto;
+    transform: scale(.4);
+    transition: all .5s ease;
+    z-index: 3;
+    position: absolute;
+    padding: 20px;
+    border-radius: 3px;
+    box-sizing: border-box;
+    box-shadow: 0 3px 3px 2px rgba(255, 255, 255, .1);
+    background-color: #fff;
+    visibility: hidden;
+  }
+  &--opened {
+    visibility: visible;
+    .contaazul__modal {
+      &__curtain {
+        opacity: .7;
+      }
+      &__box {
+        transform: scale(1);
+        visibility: visible;
+      }
+    }
+  }
+}
