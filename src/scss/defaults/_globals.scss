@@ -31,4 +31,23 @@
   &__align-right {
     text-align: right;
   }
+
+  &__textfield {
+    height: 40px;
+    background-color: #fff;
+    border: 1px solid #C7D3DC;
+    border-radius: 3px;
+    box-sizing: border-box;
+    align-items: center;
+    color: $borderColor;
+    padding: 0 15px;
+    font-family: $secondFont;
+    font-size: 14px;
+    -webkit-font-smoothing: antialiased;
+    color: #aaa;
+    &--sm {
+      @extend .contaazul__textfield;
+      height: 25px;
+    }
+  }
 }
