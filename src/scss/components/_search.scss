@@ -6,6 +6,7 @@
     border-radius: 3px 0 0 3px;
     &:focus {
       outline: 0;
+      border: 1px solid $borderColor;
     }
     &::placeholder {
       font-size: 13px;
