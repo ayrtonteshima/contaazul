@@ -3,18 +3,7 @@
   &__textfield {
     width: 100%;
     min-width: 180px;
-    height: 40px;
-    background-color: #fff;
-    border: 1px solid #C7D3DC;
     border-radius: 3px 0 0 3px;
-    box-sizing: border-box;
-    align-items: center;
-    color: $borderColor;
-    padding: 0 15px;
-    font-family: $secondFont;
-    font-size: 14px;
-    -webkit-font-smoothing: antialiased;
-    color: #aaa;
     &:focus {
       outline: 0;
     }
