@@ -11,9 +11,7 @@ describe('Endpoint da api fleets', () => {
         .expect('status', 200)
         .done(done);
     });
-  })
 
-  describe('método GET', () => {
     it ('deve retornar o contrato correto', function (done) {
       frisby
         .get(`${URL_BASE}/api/v1/fleets`)
