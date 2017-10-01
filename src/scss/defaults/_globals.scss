@@ -45,6 +45,19 @@
     font-size: 14px;
     -webkit-font-smoothing: antialiased;
     color: #aaa;
+    &:focus {
+      outline: 0;
+      border: 2px solid $highlightedBorderColor
+    }
+
+    &--error, &--error:focus {
+      border: 2px solid $dangerColor;
+    }
+
+    &--valid, &--valid:focus {
+      border: 2px solid $successColor;
+    }
+
     &--sm {
       @extend .contaazul__textfield;
       height: 25px;
