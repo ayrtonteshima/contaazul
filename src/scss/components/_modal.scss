@@ -5,13 +5,15 @@
     top: 0;
     left: 0;
   }
-  align-items: center;
   position: fixed;
   justify-content: center;
   z-index: 2;
   display: flex;
   visibility: hidden;
   transition: visibility .5s ease;
+  @include mq(medium) {
+    align-items: center;
+  }
   &__curtain {
     background-color: #000;
     opacity: 0;
@@ -32,6 +34,10 @@
     box-shadow: 0 3px 3px 2px rgba(255, 255, 255, .1);
     background-color: #fff;
     visibility: hidden;
+    top: 20px;
+    @include mq(medium) {
+      top: auto;
+    }
   }
   &--opened {
     visibility: visible;
