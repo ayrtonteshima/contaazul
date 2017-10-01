@@ -20,8 +20,16 @@ const handlePOSTFleets = (req, res) => (
     .catch(() => res.status(500).send())
 );
 
+const handleDELETEFleets = (req, res) => {
+  const { id } = req.params;
+  fleetsStore.del(id)
+    .then(() => res.status(204).send())
+    .catch(() => res.status(500).send())
+};
+
 module.exports = {
   handleGETFleets,
   handlePOSTFleets,
+  handleDELETEFleets,
 };
 

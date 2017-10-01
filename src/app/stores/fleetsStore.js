@@ -1,28 +1,40 @@
 const fleets = require('./../models/fleetsModel');
 
 const getAll = () => (
-  new Promise((resolve, reject) => {
+  new Promise((resolve, reject) => (
     fleets.getAll()
       .then(resolve)
       .catch(({ message }) => {
         console.error(message);
         reject();
-      });
-  })
+      })
+  ))
 );
 
-const save = (fleetData) => (
-  new Promise((resolve, reject) => {
+const save = fleetData => (
+  new Promise((resolve, reject) => (
     fleets.save(fleetData)
       .then(resolve)
       .catch(({ message }) => {
         console.error(message);
         reject();
-      });
-  })
+      })
+  ))
+);
+
+const del = (id) => (
+  new Promise((resolve, reject) => (
+    fleets.del(id)
+      .then(resolve)
+      .catch(({ message }) => {
+        console.error(message);
+        reject();
+      })
+  ))
 );
 
 module.exports = {
   getAll,
   save,
+  del,
 };

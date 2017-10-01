@@ -42,4 +42,13 @@ describe('Endpoint da api fleets', () => {
         .done(done);
     });
   });
+
+  describe('método DELETE', () => {
+    it ('deve retornar 204', function (done) {
+      frisby
+        .del(`${URL_BASE}/api/v1/fleets/1`)
+        .expect('status', 204)
+        .done(done);
+    });
+  });
 });
