@@ -1,5 +1,5 @@
 const express = require('express');
-const { fleetsRoute } = require('./routes');
+const routes = require('./routes');
 
 const app = express();
 
@@ -9,6 +9,6 @@ app.set('views', './src/views');
 app.use(express.static('./dist'));
 app.use(express.static('./static'));
 
-app.use(fleetsRoute);
+app.use(routes);
 
 module.exports = app;

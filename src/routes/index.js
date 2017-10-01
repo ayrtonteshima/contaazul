@@ -1,5 +1,7 @@
-const fleetsRoute = require('./fleets');
+const homeRoute = require('./home');
+const fleetsRoute = require('./api/fleets');
 
-module.exports = {
+module.exports = [
+  homeRoute,
   fleetsRoute,
-};
+];
