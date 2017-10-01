@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
-router.get('/api/v1/fleets', (req, res) => {
-  res.send('ok');
-});
+const { handleGetFleets } = require('@app/handlers/fleets');
+
+router.get('/api/v1/fleets', handleGetFleets);
 
 module.exports = router;
