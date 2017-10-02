@@ -34,5 +34,14 @@ describe('Filter reducer', () => {
       
       expect(totalFiltered).toEqual(expected);
     });
+
+    it('quando tem um termo', () => {
+      const newState = Object.assign({}, state, { term: 'chery flex' });
+      const result = filterReducer(newState);
+      const expected = 8;
+      const totalFiltered = result.data.filter(({ filtered }) => filtered).length;
+      
+      expect(totalFiltered).toEqual(expected);
+    });
   });
 });
