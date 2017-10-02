@@ -1,4 +1,4 @@
-import paginationReducer from '../../../src/js/reducers/pagination';
+import paginationReducer from '../../../src/js/reducers/paginate';
 
 const expectTheItemIsOnTheCorrectPage = (result, perPage) => {
   for (let i = 0, j = 0; i < result.data.length; i +=1) {
