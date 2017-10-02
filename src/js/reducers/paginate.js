@@ -13,7 +13,7 @@ const incrementPage = ({ perPage }) => {
   return inc;
 };
 
-const paginationReducer = (state) => {
+const paginateReducer = (state) => {
   const { data, perPage } = state;
   const newData = data.map(incrementPage(state));
 
@@ -25,5 +25,5 @@ const paginationReducer = (state) => {
   });
 };
 
-export default paginationReducer;
+export default paginateReducer;
 
