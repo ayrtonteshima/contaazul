@@ -10,10 +10,15 @@ const incrementPage = ({ perPage }) => {
 };
 
 const paginationReducer = (state) => {
-  const { data } = state;
+  const { data, perPage } = state;
   const newData = data.map(incrementPage(state));
 
-  return Object.assign({}, state, { data: newData });
+  const totalPages = Math.ceil(newData.filter(({ page }) => !!page).length / perPage);
+
+  return Object.assign({}, state, {
+    totalPages,
+    data: newData
+  });
 };
 
 export default paginationReducer;
