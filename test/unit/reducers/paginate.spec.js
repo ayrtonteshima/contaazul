@@ -17,21 +17,21 @@ describe('Reducer pagination', () => {
       state = {
         perPage,
         data: [
-          { marca: 'Volkswagen', combustivel: 'Gasolina' },
-          { marca: 'Chery', combustivel: 'Gasolina' },
-          { marca: 'Honda', combustivel: 'Flex' },
-          { marca: 'Toyota', combustivel: 'Gasolina' },
-          { marca: 'Toyota', combustivel: 'Flex' },
-          { marca: 'Volkswagen', combustivel: 'alcool' },
-          { marca: 'Chery', combustivel: 'Alcool' },
-          { marca: 'Chery', combustivel: 'Flex' },
-          { marca: 'Chevrolet', combustivel: 'Alcool' },
-          { marca: 'Audi', combustivel: 'Gasolina' },
-          { marca: 'Kya', combustivel: 'Flex' },
-          { marca: 'Porshe', combustivel: 'Flex' },
-          { marca: 'Hyndai', combustivel: 'Flex' },
-          { marca: 'Ford', combustivel: 'Gasolina' },
-          { marca: 'Fiat', combustivel: 'Gasolina' },
+          { marca: 'Volkswagen', combustivel: 'Gasolina', filtered: true },
+          { marca: 'Chery', combustivel: 'Gasolina', filtered: true },
+          { marca: 'Honda', combustivel: 'Flex', filtered: true },
+          { marca: 'Toyota', combustivel: 'Gasolina', filtered: true },
+          { marca: 'Toyota', combustivel: 'Flex', filtered: true },
+          { marca: 'Volkswagen', combustivel: 'alcool', filtered: true },
+          { marca: 'Chery', combustivel: 'Alcool', filtered: true },
+          { marca: 'Chery', combustivel: 'Flex', filtered: true },
+          { marca: 'Chevrolet', combustivel: 'Alcool', filtered: true },
+          { marca: 'Audi', combustivel: 'Gasolina', filtered: true },
+          { marca: 'Kya', combustivel: 'Flex', filtered: true },
+          { marca: 'Porshe', combustivel: 'Flex', filtered: true },
+          { marca: 'Hyndai', combustivel: 'Flex', filtered: true },
+          { marca: 'Ford', combustivel: 'Gasolina', filtered: true },
+          { marca: 'Fiat', combustivel: 'Gasolina', filtered: true },
         ]
       }
     });
@@ -41,4 +41,44 @@ describe('Reducer pagination', () => {
       expectTheItemIsOnTheCorrectPage(result, perPage);
     });
   })
+
+  describe('com filtro', () => {
+    let state = {};
+    let perPage = 2;
+    beforeAll(() => {
+      state = {
+        perPage,
+        data: [
+          { marca: 'Volkswagen', combustivel: 'Gasolina', filtered: true },
+          { marca: 'Chery', combustivel: 'Gasolina', filtered: true },
+          { marca: 'Honda', combustivel: 'Flex', filtered: false },
+          { marca: 'Toyota', combustivel: 'Gasolina', filtered: false },
+          { marca: 'Toyota', combustivel: 'Flex', filtered: true },
+          { marca: 'Volkswagen', combustivel: 'alcool', filtered: true },
+          { marca: 'Chery', combustivel: 'Alcool', filtered: true },
+          { marca: 'Chery', combustivel: 'Flex', filtered: false },
+          { marca: 'Chevrolet', combustivel: 'Alcool', filtered: true },
+          { marca: 'Audi', combustivel: 'Gasolina', filtered: true },
+          { marca: 'Kya', combustivel: 'Flex', filtered: true },
+          { marca: 'Porshe', combustivel: 'Flex', filtered: true },
+          { marca: 'Hyndai', combustivel: 'Flex', filtered: true },
+          { marca: 'Ford', combustivel: 'Gasolina', filtered: false },
+          { marca: 'Fiat', combustivel: 'Gasolina', filtered: true },
+        ]
+      }
+    });
+
+    it('deve marcar total de página igual a 6', () => {
+      const expected = 6;
+      const result = paginationReducer(state);
+      expect(result.totalPages).toEqual(expected);
+    });
+
+    it('deve marcar total de página igual a 4', () => {
+      const expected = 4;
+      const newState = Object.assign({}, state, { perPage: 3 });
+      const result = paginationReducer(newState);
+      expect(result.totalPages).toEqual(4);
+    });
+  });
 });
