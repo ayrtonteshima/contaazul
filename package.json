@@ -10,7 +10,8 @@
     "start": "nodemon ./index --ignore ./src/js ./dist",
     "build": "webpack",
     "watch": "webpack --watch",
-    "test": "jest"
+    "test": "jest",
+    "eslint": "eslint src/js --no-cache"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
@@ -19,6 +20,7 @@
     "css-loader": "^0.28.7",
     "eslint": "^4.8.0",
     "eslint-config-airbnb-base": "^12.0.1",
+    "eslint-plugin-import": "^2.7.0",
     "extract-text-webpack-plugin": "^3.0.0",
     "frisby": "^2.0.5",
     "jest": "^21.2.1",
