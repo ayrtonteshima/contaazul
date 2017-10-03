@@ -36,7 +36,7 @@ const datalistReducer = (state, action) => {
     case 'SET_PAGE':
       return Object.assign({}, state, {
         currentPage: action.payload.page,
-      })
+      });
     default:
       return state;
   }

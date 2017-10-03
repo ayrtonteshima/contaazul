@@ -1,5 +1,4 @@
 import datalistReducer from './datalist';
-import filterReducer from './filter';
 import paginateReducer from './paginate';
 import initialState from './initialState';
 
@@ -12,8 +11,6 @@ const reducer = (state = initialState, action) => {
     case 'DELETE_ITEM':
     case 'GET_ALL':
       return datalistReducer(state, action);
-    case 'FILTER':
-      return filterReducer(state, action);
     default:
       return state;
   }

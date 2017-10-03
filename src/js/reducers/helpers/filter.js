@@ -19,7 +19,7 @@ const filterItem = term => (item) => {
   });
 };
 
-const itensFiltered = (state) => {
+const filter = (state) => {
   const { term, data } = state;
   const newData = data.map(filterItem(term));
 
@@ -28,14 +28,5 @@ const itensFiltered = (state) => {
   });
 };
 
-const filterReducer = (state, action) => {
-  switch (action.type) {
-    case 'FILTER':
-      return itensFiltered(state);
-    default:
-      return state;
-  }
-};
-
-export default filterReducer;
+export default filter;
 

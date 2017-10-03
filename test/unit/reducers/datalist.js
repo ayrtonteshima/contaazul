@@ -36,7 +36,7 @@ describe('Create', () => {
         type: 'CREATE_ITEM',
         payload: {
           item,
-        }
+        },
       });
     });
 
