@@ -21,6 +21,11 @@ const deleteItem = (state, { payload }) => {
 
 const datalistReducer = (state, action) => {
   switch (action.type) {
+    case 'GET_ALL':
+      return Object.assign({}, state, {
+        term: null,
+        data: action.payload.data,
+      });
     case 'CREATE_ITEM':
       return Object.assign({}, state, {
         term: null,

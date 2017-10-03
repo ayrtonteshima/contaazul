@@ -104,3 +104,32 @@ describe('Delete', () => {
     });
   });
 });
+
+describe('GET', () => {
+  describe('adiciona no state', () => {
+    it('todo a listagem de carros', () => {
+      const state = {
+        term: null,
+        data: [],
+      };
+      const data = [
+        { id: 1, marca: 'Chery', combustivel: 'Gasolina' },
+        { id: 2, marca: 'Honda', combustivel: 'Flex' },
+        { id: 3, marca: 'Toyota', combustivel: 'Gasolina' },
+        { id: 4, marca: 'Toyota', combustivel: 'Flex' },
+        { id: 5, marca: 'Volkswagen', combustivel: 'alcool' },
+        { id: 6, marca: 'Chery', combustivel: 'Alcool' },
+        { id: 7, marca: 'Chery', combustivel: 'Flex' },
+      ];
+
+      const result = reducers(state, {
+        type: 'GET_ALL',
+        payload: {
+          data,
+        },
+      });
+
+      expect(result.data).toEqual(data);
+    });
+  });
+});
