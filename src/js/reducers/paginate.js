@@ -25,16 +25,8 @@ const paginate = (state) => {
   });
 };
 
-const currentPage = (state, { payload }) => (
-  Object.assign({}, state, {
-    currentPage: payload.page,
-  })
-);
-
 const paginateReducer = (state, action) => {
   switch (action.type) {
-    case 'SET_PAGE':
-      return currentPage(state, action);
     case 'PAGINATE':
       return paginate(state);
     default:

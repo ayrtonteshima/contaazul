@@ -5,9 +5,9 @@ import initialState from './initialState';
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'SET_PAGE':
     case 'PAGINATE':
       return paginateReducer(state, action);
+    case 'SET_PAGE':
     case 'CREATE_ITEM':
     case 'DELETE_ITEM':
     case 'GET_ALL':
