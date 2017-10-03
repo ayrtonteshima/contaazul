@@ -10,6 +10,7 @@ const reducer = (state = initialState, action) => {
       return paginateReducer(state, action);
     case 'CREATE_ITEM':
     case 'DELETE_ITEM':
+    case 'GET_ALL':
       return datalistReducer(state, action);
     case 'FILTER':
       return filterReducer(state, action);
