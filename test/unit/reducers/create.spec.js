@@ -3,8 +3,11 @@ import createReducer from '../../../src/js/reducers/create';
 describe('Create reducer', () => {
   describe('deve Adicionar 1 item', () => {
     let state = {};
+    let item = {};
+    let result = {};
     beforeAll(() => {
       state = {
+        term: 'Honda',
         data: [
           { marca: 'Volkswagen', combustivel: 'Gasolina' },
           { marca: 'Chery', combustivel: 'Gasolina' },
@@ -22,19 +25,23 @@ describe('Create reducer', () => {
           { marca: 'Ford', combustivel: 'Gasolina' },
           { marca: 'Fiat', combustivel: 'Gasolina' },
         ]
-      }
-    });
+      };
 
-    it('no início da lista', () => {
-      const item = {
+      item = {
         marca: 'Chevrolet',
         combustivel: 'Flex',
       };
 
-      const result = createReducer(item, state);
-      
+      result = createReducer(item, state);
+    });
+
+    it('no início da lista', () => {
       expect(result.data[0].marca).toEqual('Chevrolet');
       expect(result.data[0].combustivel).toEqual('Flex');
+    });
+
+    it('O termo deve ser limpo', () => {
+      expect(result.term).toBeNull();
     });
   });
 });
