@@ -28,7 +28,9 @@ describe('Filter reducer', () => {
     });
 
     it('quando não tem termo', () => {
-      const result = filterReducer(state);
+      const result = filterReducer(state, {
+        type: 'FILTER'
+      });
       const expected = state.data.length;
       const totalFiltered = result.data.filter(({ filtered }) => filtered).length;
       
@@ -37,7 +39,9 @@ describe('Filter reducer', () => {
 
     it('quando tem um termo', () => {
       const newState = Object.assign({}, state, { term: 'chery flex' });
-      const result = filterReducer(newState);
+      const result = filterReducer(newState, {
+        type: 'FILTER'
+      });
       const expected = 8;
       const totalFiltered = result.data.filter(({ filtered }) => filtered).length;
       
