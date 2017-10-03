@@ -1,4 +1,4 @@
-import reducers from '../../../src/js/reducers';
+import paginateHelper from '../../../../src/js/reducers/helpers/paginate';
 
 const expectTheItemIsOnTheCorrectPage = (result, perPage) => {
   for (let i = 0, j = 0; i < result.data.length; i +=1) {
@@ -37,9 +37,7 @@ describe('Reducer pagination', () => {
     });
 
     it('deve marcar as páginas corretamente', () => {
-      const result = reducers(state, {
-        type: 'PAGINATE'
-      });
+      const result = paginateHelper(state);
       expectTheItemIsOnTheCorrectPage(result, perPage);
     });
   })
@@ -72,49 +70,17 @@ describe('Reducer pagination', () => {
 
     it('deve marcar total de página igual a 6', () => {
       const expected = 6;
-      const result = reducers(state, {
-        type: 'PAGINATE'
-      });
+      const result = paginateHelper(state);
       expect(result.totalPages).toEqual(expected);
     });
 
     it('deve marcar total de página igual a 4', () => {
       const expected = 4;
       const newState = Object.assign({}, state, { perPage: 3 });
-      const result = reducers(newState, {
-        type: 'PAGINATE'
-      });
+      const result = paginateHelper(newState);
       expect(result.totalPages).toEqual(4);
     });
   });
 
-  describe('troca pagina', () => {
-    let state = {};
-
-    beforeAll(() => {
-      state = {
-        perPage: 2,
-        data: [
-          { marca: 'Volkswagen', combustivel: 'Gasolina', filtered: true },
-          { marca: 'Chery', combustivel: 'Gasolina', filtered: true },
-          { marca: 'Honda', combustivel: 'Flex', filtered: true },
-          { marca: 'Toyota', combustivel: 'Gasolina', filtered: true },
-          { marca: 'Toyota', combustivel: 'Flex', filtered: true },
-          { marca: 'Volkswagen', combustivel: 'alcool', filtered: true },
-          { marca: 'Chery', combustivel: 'Alcool', filtered: true },
-        ]
-      }
-    });
-
-    it('deve retornar state atualizado', () => {
-      const result = reducers(state, {
-        type: 'SET_PAGE',
-        payload: {
-          page: 3,
-        }
-      });
-
-      expect(result.currentPage).toEqual(3);
-    })
-  });
+  
 });

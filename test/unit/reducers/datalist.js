@@ -133,3 +133,33 @@ describe('GET', () => {
     });
   });
 });
+
+// describe('troca pagina', () => {
+//   let state = {};
+
+//   beforeAll(() => {
+//     state = {
+//       perPage: 2,
+//       data: [
+//         { marca: 'Volkswagen', combustivel: 'Gasolina', filtered: true },
+//         { marca: 'Chery', combustivel: 'Gasolina', filtered: true },
+//         { marca: 'Honda', combustivel: 'Flex', filtered: true },
+//         { marca: 'Toyota', combustivel: 'Gasolina', filtered: true },
+//         { marca: 'Toyota', combustivel: 'Flex', filtered: true },
+//         { marca: 'Volkswagen', combustivel: 'alcool', filtered: true },
+//         { marca: 'Chery', combustivel: 'Alcool', filtered: true },
+//       ]
+//     }
+//   });
+
+//   it('deve retornar state atualizado', () => {
+//     const result = paginateHelper(state, {
+//       type: 'SET_PAGE',
+//       payload: {
+//         page: 3,
+//       }
+//     });
+
+//     expect(result.currentPage).toEqual(3);
+//   })
+// });

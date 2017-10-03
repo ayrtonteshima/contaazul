@@ -25,14 +25,4 @@ const paginate = (state) => {
   });
 };
 
-const paginateReducer = (state, action) => {
-  switch (action.type) {
-    case 'PAGINATE':
-      return paginate(state);
-    default:
-      return state;
-  }
-};
-
-export default paginateReducer;
-
+export default paginate;
