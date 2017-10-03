@@ -2,8 +2,9 @@ import createReducer from './create';
 import deleteReducer from './delete';
 import filterReducer from './filter';
 import paginateReducer from './paginate';
+import initialState from './initialState';
 
-const reducer = (state, action) => {
+const reducer = (state = initialState, action) => {
   switch (action.type) {
     case 'SET_PAGE':
     case 'PAGINATE':
