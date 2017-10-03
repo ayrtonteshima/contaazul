@@ -34,5 +34,12 @@ describe('Delete reducer', () => {
       expect(result.data.length).toEqual(expected);
       expect(result.data[2].combustivel).toEqual('Flex');
     });
+
+    it('diversos itens', () => {
+      const itensIds = [3, 4, 7, 10, 15];
+      const result = deleteReducer(itensIds, state);
+      const expected = state.data.length - itensIds.length;
+      expect(result.data.length).toEqual(expected);
+    });
   });
 });
