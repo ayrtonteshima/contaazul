@@ -28,7 +28,12 @@ describe('Delete reducer', () => {
 
     it('1 item', () => {
       const itensIds = [3];
-      const result = deleteReducer(itensIds, state);
+      const result = deleteReducer(state, {
+        type: 'DELETE_ITEM',
+        payload: {
+          itensIds,
+        }
+      });
       const expected = state.data.length - 1;
       
       expect(result.data.length).toEqual(expected);
@@ -37,7 +42,12 @@ describe('Delete reducer', () => {
 
     it('diversos itens', () => {
       const itensIds = [3, 4, 7, 10, 15];
-      const result = deleteReducer(itensIds, state);
+      const result = deleteReducer(state, {
+        type: 'DELETE_ITEM',
+        payload: {
+          itensIds,
+        }
+      });
       const expected = state.data.length - itensIds.length;
       expect(result.data.length).toEqual(expected);
     });

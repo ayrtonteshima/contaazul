@@ -1,5 +1,5 @@
-const deleteReducer = (itensIds, state) => {
-  const totalToSearch = itensIds.length;
+const deleteItem = (state, { payload }) => {
+  const totalToSearch = payload.itensIds.length;
   const { data } = state;
   const totalItems = data.length;
   const indexesFound = [];
@@ -7,7 +7,7 @@ const deleteReducer = (itensIds, state) => {
   for (let i = 0; i < totalItems; i += 1) {
     if (indexesFound.length >= totalToSearch) break;
 
-    if (itensIds.indexOf(data[i].id) !== -1) {
+    if (payload.itensIds.indexOf(data[i].id) !== -1) {
       indexesFound.push(i);
     }
   }
@@ -17,6 +17,15 @@ const deleteReducer = (itensIds, state) => {
       indexesFound.indexOf(index) === -1
     )),
   });
+};
+
+const deleteReducer = (state, action) => {
+  switch (action.type) {
+    case 'DELETE_ITEM':
+      return deleteItem(state, action);
+    default:
+      return state;
+  }
 };
 
 export default deleteReducer;
