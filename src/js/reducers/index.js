@@ -1,5 +1,4 @@
-import createReducer from './create';
-import deleteReducer from './delete';
+import datalistReducer from './datalist';
 import filterReducer from './filter';
 import paginateReducer from './paginate';
 import initialState from './initialState';
@@ -10,9 +9,8 @@ const reducer = (state = initialState, action) => {
     case 'PAGINATE':
       return paginateReducer(state, action);
     case 'CREATE_ITEM':
-      return createReducer(state, action);
     case 'DELETE_ITEM':
-      return deleteReducer(state, action);
+      return datalistReducer(state, action);
     case 'FILTER':
       return filterReducer(state, action);
     default:

@@ -19,8 +19,13 @@ const deleteItem = (state, { payload }) => {
   });
 };
 
-const deleteReducer = (state, action) => {
+const datalistReducer = (state, action) => {
   switch (action.type) {
+    case 'CREATE_ITEM':
+      return Object.assign({}, state, {
+        term: null,
+        data: [action.payload.item, ...state.data],
+      });
     case 'DELETE_ITEM':
       return deleteItem(state, action);
     default:
@@ -28,4 +33,4 @@ const deleteReducer = (state, action) => {
   }
 };
 
-export default deleteReducer;
+export default datalistReducer;
