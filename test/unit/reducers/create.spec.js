@@ -1,4 +1,4 @@
-import createReducer from '../../../src/js/reducers/create';
+import reducers from '../../../src/js/reducers';
 
 describe('Create reducer', () => {
   describe('deve Adicionar 1 item', () => {
@@ -32,7 +32,7 @@ describe('Create reducer', () => {
         combustivel: 'Flex',
       };
 
-      result = createReducer(state, {
+      result = reducers(state, {
         type: 'CREATE_ITEM',
         payload: {
           item,

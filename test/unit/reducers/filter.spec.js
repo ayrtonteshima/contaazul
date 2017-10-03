@@ -1,4 +1,4 @@
-import filterReducer from '../../../src/js/reducers/filter';
+import reducers from '../../../src/js/reducers';
 
 describe('Filter reducer', () => {
   describe('deve filtrar', () => {
@@ -28,7 +28,7 @@ describe('Filter reducer', () => {
     });
 
     it('quando não tem termo', () => {
-      const result = filterReducer(state, {
+      const result = reducers(state, {
         type: 'FILTER'
       });
       const expected = state.data.length;
@@ -39,7 +39,7 @@ describe('Filter reducer', () => {
 
     it('quando tem um termo', () => {
       const newState = Object.assign({}, state, { term: 'chery flex' });
-      const result = filterReducer(newState, {
+      const result = reducers(newState, {
         type: 'FILTER'
       });
       const expected = 8;

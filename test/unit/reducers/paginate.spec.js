@@ -1,4 +1,4 @@
-import paginate from '../../../src/js/reducers/paginate';
+import reducers from '../../../src/js/reducers';
 
 const expectTheItemIsOnTheCorrectPage = (result, perPage) => {
   for (let i = 0, j = 0; i < result.data.length; i +=1) {
@@ -37,7 +37,7 @@ describe('Reducer pagination', () => {
     });
 
     it('deve marcar as páginas corretamente', () => {
-      const result = paginate(state, {
+      const result = reducers(state, {
         type: 'PAGINATE'
       });
       expectTheItemIsOnTheCorrectPage(result, perPage);
@@ -72,7 +72,7 @@ describe('Reducer pagination', () => {
 
     it('deve marcar total de página igual a 6', () => {
       const expected = 6;
-      const result = paginate(state, {
+      const result = reducers(state, {
         type: 'PAGINATE'
       });
       expect(result.totalPages).toEqual(expected);
@@ -81,7 +81,7 @@ describe('Reducer pagination', () => {
     it('deve marcar total de página igual a 4', () => {
       const expected = 4;
       const newState = Object.assign({}, state, { perPage: 3 });
-      const result = paginate(newState, {
+      const result = reducers(newState, {
         type: 'PAGINATE'
       });
       expect(result.totalPages).toEqual(4);
@@ -107,7 +107,7 @@ describe('Reducer pagination', () => {
     });
 
     it('deve retornar state atualizado', () => {
-      const result = paginate(state, {
+      const result = reducers(state, {
         type: 'SET_PAGE',
         payload: {
           page: 3,

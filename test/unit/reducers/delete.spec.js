@@ -1,4 +1,4 @@
-import deleteReducer from '../../../src/js/reducers/delete';
+import reducers from '../../../src/js/reducers';
 
 describe('Delete reducer', () => {
   describe('deve remover', () => {
@@ -28,7 +28,7 @@ describe('Delete reducer', () => {
 
     it('1 item', () => {
       const itensIds = [3];
-      const result = deleteReducer(state, {
+      const result = reducers(state, {
         type: 'DELETE_ITEM',
         payload: {
           itensIds,
@@ -42,7 +42,7 @@ describe('Delete reducer', () => {
 
     it('diversos itens', () => {
       const itensIds = [3, 4, 7, 10, 15];
-      const result = deleteReducer(state, {
+      const result = reducers(state, {
         type: 'DELETE_ITEM',
         payload: {
           itensIds,
