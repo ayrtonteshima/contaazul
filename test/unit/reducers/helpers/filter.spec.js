@@ -1,6 +1,6 @@
 import filterHelper from '../../../../src/js/reducers/helpers/filter';
 
-describe('Filter reducer', () => {
+describe('Helper filter', () => {
   describe('deve filtrar', () => {
     let state = {};
     let term = null;

@@ -9,7 +9,7 @@ const expectTheItemIsOnTheCorrectPage = (result, perPage) => {
   }
 }
 
-describe('Reducer pagination', () => {
+describe('Helper paginate', () => {
   describe('sem filtro', () => {
     let state = {};
     let perPage = 2;
