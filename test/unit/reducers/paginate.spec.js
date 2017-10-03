@@ -37,7 +37,9 @@ describe('Reducer pagination', () => {
     });
 
     it('deve marcar as páginas corretamente', () => {
-      const result = paginate(state);
+      const result = paginate(state, {
+        type: 'PAGINATE'
+      });
       expectTheItemIsOnTheCorrectPage(result, perPage);
     });
   })
@@ -70,15 +72,49 @@ describe('Reducer pagination', () => {
 
     it('deve marcar total de página igual a 6', () => {
       const expected = 6;
-      const result = paginate(state);
+      const result = paginate(state, {
+        type: 'PAGINATE'
+      });
       expect(result.totalPages).toEqual(expected);
     });
 
     it('deve marcar total de página igual a 4', () => {
       const expected = 4;
       const newState = Object.assign({}, state, { perPage: 3 });
-      const result = paginate(newState);
+      const result = paginate(newState, {
+        type: 'PAGINATE'
+      });
       expect(result.totalPages).toEqual(4);
     });
+  });
+
+  describe('troca pagina', () => {
+    let state = {};
+
+    beforeAll(() => {
+      state = {
+        perPage: 2,
+        data: [
+          { marca: 'Volkswagen', combustivel: 'Gasolina', filtered: true },
+          { marca: 'Chery', combustivel: 'Gasolina', filtered: true },
+          { marca: 'Honda', combustivel: 'Flex', filtered: true },
+          { marca: 'Toyota', combustivel: 'Gasolina', filtered: true },
+          { marca: 'Toyota', combustivel: 'Flex', filtered: true },
+          { marca: 'Volkswagen', combustivel: 'alcool', filtered: true },
+          { marca: 'Chery', combustivel: 'Alcool', filtered: true },
+        ]
+      }
+    });
+
+    it('deve retornar state atualizado', () => {
+      const result = paginate(state, {
+        type: 'SET_PAGE',
+        payload: {
+          page: 3,
+        }
+      });
+
+      expect(result.currentPage).toEqual(3);
+    })
   });
 });

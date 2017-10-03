@@ -13,7 +13,7 @@ const incrementPage = ({ perPage }) => {
   return inc;
 };
 
-const paginateReducer = (state) => {
+const paginate = (state) => {
   const { data, perPage } = state;
   const newData = data.map(incrementPage(state));
 
@@ -23,6 +23,21 @@ const paginateReducer = (state) => {
     totalPages,
     data: newData,
   });
+};
+
+const currentPage = (state, { payload }) => (
+  Object.assign({}, state, {
+    currentPage: payload.page
+  })
+);
+
+const paginateReducer = (state, action) => {
+  switch (action.type) {
+    case 'SET_PAGE':
+      return currentPage(state, action);
+    default:
+      return paginate(state);
+  };
 };
 
 export default paginateReducer;
