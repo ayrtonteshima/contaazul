@@ -32,7 +32,12 @@ describe('Create reducer', () => {
         combustivel: 'Flex',
       };
 
-      result = createReducer(item, state);
+      result = createReducer(state, {
+        type: 'CREATE_ITEM',
+        payload: {
+          item,
+        }
+      });
     });
 
     it('no início da lista', () => {
