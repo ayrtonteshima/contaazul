@@ -21,6 +21,13 @@ const templateItem = (options) => {
   );
 };
 
+const templatePagination = () => (
+  `<li class="contaazul__pagination__item">
+    <a class="contaazul__pagination__item__link" href="#" title="">-</a>
+  </li>`
+);
+
 export {
   templateItem,
+  templatePagination,
 };

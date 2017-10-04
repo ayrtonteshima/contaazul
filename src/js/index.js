@@ -1,12 +1,27 @@
 import './../scss/main.scss';
 import * as actions from './actions';
-import { templateItem } from './template';
+import {
+  templateItem,
+  templatePagination,
+} from './template';
 
-const render = ({ data }) => {
+const renderItems = ({ data }) => {
   const html = data.map(templateItem).join('');
   document.querySelector('.contaazul__table__body').innerHTML = html;
 };
 
+const renderPagination = ({ totalPages }) => {
+  const html = totalPages > 1 ?
+    templatePagination() :
+    '';
+  document.querySelector('.contaazul__pagination').innerHTML = html;
+};
+
+const renderGetAllFleets = (state) => {
+  renderItems(state);
+  renderPagination(state);
+};
+
 actions.getAllFleets()
-  .then(render);
+  .then(renderGetAllFleets);
 
