@@ -26,10 +26,10 @@ const addItemToBeDeleted = (id) => {
     type: 'ADD_LIST_DELETE_ITEM',
     payload: {
       id,
-    }
+    },
   });
   return Promise.resolve(state);
-}
+};
 
 export {
   getAllFleets,

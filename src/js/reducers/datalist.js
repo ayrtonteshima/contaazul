@@ -25,12 +25,10 @@ const deleteItem = (state, { payload }) => {
 };
 
 const addItemToBeDeleted = ({ itensWillBeDeleted }, ids) => {
-  const res = ids.map(id => (
-    itensWillBeDeleted.indexOf(id) !== -1 ?
-      itensWillBeDeleted.filter(idList => idList !== id) :
-      [...itensWillBeDeleted, id]
-  ));
-  return res.reduce((prev, current) => prev.concat(current));
+  if (Array.isArray(ids)) return ids;
+  return itensWillBeDeleted.indexOf(ids) !== -1 ?
+    itensWillBeDeleted.filter((itemId => itemId !== ids)) :
+    [...itensWillBeDeleted, ids];
 };
 
 const datalistReducer = (state, action) => {
