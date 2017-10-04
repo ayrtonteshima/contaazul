@@ -8,6 +8,7 @@ describe('Create', () => {
     beforeAll(() => {
       state = {
         term: 'Honda',
+        perPage: 3,
         data: [
           { marca: 'Volkswagen', combustivel: 'Gasolina' },
           { marca: 'Chery', combustivel: 'Gasolina' },
@@ -110,16 +111,17 @@ describe('GET', () => {
     it('todo a listagem de carros', () => {
       const state = {
         term: null,
+        perPage: 5,
         data: [],
       };
       const data = [
-        { id: 1, marca: 'Chery', combustivel: 'Gasolina' },
-        { id: 2, marca: 'Honda', combustivel: 'Flex' },
-        { id: 3, marca: 'Toyota', combustivel: 'Gasolina' },
-        { id: 4, marca: 'Toyota', combustivel: 'Flex' },
-        { id: 5, marca: 'Volkswagen', combustivel: 'alcool' },
-        { id: 6, marca: 'Chery', combustivel: 'Alcool' },
-        { id: 7, marca: 'Chery', combustivel: 'Flex' },
+        { id: 1, marca: 'Chery', combustivel: 'Gasolina', page: 1, filtered: true },
+        { id: 2, marca: 'Honda', combustivel: 'Flex', page: 1, filtered: true },
+        { id: 3, marca: 'Toyota', combustivel: 'Gasolina', page: 1, filtered: true },
+        { id: 4, marca: 'Toyota', combustivel: 'Flex', page: 1, filtered: true },
+        { id: 5, marca: 'Volkswagen', combustivel: 'alcool', page: 1, filtered: true },
+        { id: 6, marca: 'Chery', combustivel: 'Alcool', page: 2, filtered: true },
+        { id: 7, marca: 'Chery', combustivel: 'Flex', page: 2, filtered: true },
       ];
 
       const result = reducers(state, {
@@ -134,32 +136,34 @@ describe('GET', () => {
   });
 });
 
-// describe('troca pagina', () => {
-//   let state = {};
-
-//   beforeAll(() => {
-//     state = {
-//       perPage: 2,
-//       data: [
-//         { marca: 'Volkswagen', combustivel: 'Gasolina', filtered: true },
-//         { marca: 'Chery', combustivel: 'Gasolina', filtered: true },
-//         { marca: 'Honda', combustivel: 'Flex', filtered: true },
-//         { marca: 'Toyota', combustivel: 'Gasolina', filtered: true },
-//         { marca: 'Toyota', combustivel: 'Flex', filtered: true },
-//         { marca: 'Volkswagen', combustivel: 'alcool', filtered: true },
-//         { marca: 'Chery', combustivel: 'Alcool', filtered: true },
-//       ]
-//     }
-//   });
-
-//   it('deve retornar state atualizado', () => {
-//     const result = paginateHelper(state, {
-//       type: 'SET_PAGE',
-//       payload: {
-//         page: 3,
-//       }
-//     });
-
-//     expect(result.currentPage).toEqual(3);
-//   })
-// });
+describe('Paginação reducer', () => {
+  describe('troca pagina', () => {
+    let state = {};
+  
+    beforeAll(() => {
+      state = {
+        perPage: 2,
+        data: [
+          { marca: 'Volkswagen', combustivel: 'Gasolina', filtered: true },
+          { marca: 'Chery', combustivel: 'Gasolina', filtered: true },
+          { marca: 'Honda', combustivel: 'Flex', filtered: true },
+          { marca: 'Toyota', combustivel: 'Gasolina', filtered: true },
+          { marca: 'Toyota', combustivel: 'Flex', filtered: true },
+          { marca: 'Volkswagen', combustivel: 'alcool', filtered: true },
+          { marca: 'Chery', combustivel: 'Alcool', filtered: true },
+        ]
+      }
+    });
+  
+    it('deve retornar state atualizado', () => {
+      const result = reducers(state, {
+        type: 'SET_PAGE',
+        payload: {
+          page: 3,
+        }
+      });
+  
+      expect(result.currentPage).toEqual(3);
+    })
+  });
+});

@@ -6,7 +6,7 @@ const testItemWithFilter = (item, term) => {
 
   const found = `${combustivel} ${marca}`.match(regx);
 
-  return found;
+  return !!found;
 };
 
 const filterItem = term => (item) => {

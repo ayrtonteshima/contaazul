@@ -1,3 +1,8 @@
+import { filterHelper, paginateHelper } from './helpers';
+import { compose } from './../helpers';
+
+const filterPaginate = compose(paginateHelper, filterHelper);
+
 const deleteItem = (state, { payload }) => {
   const totalToSearch = payload.itensIds.length;
   const { data } = state;
@@ -22,17 +27,17 @@ const deleteItem = (state, { payload }) => {
 const datalistReducer = (state, action) => {
   switch (action.type) {
     case 'GET_ALL':
-      return Object.assign({}, state, {
+      return filterPaginate(Object.assign({}, state, {
         term: null,
         data: action.payload.data,
-      });
+      }));
     case 'CREATE_ITEM':
-      return Object.assign({}, state, {
+      return filterPaginate(Object.assign({}, state, {
         term: null,
         data: [action.payload.item, ...state.data],
-      });
+      }));
     case 'DELETE_ITEM':
-      return deleteItem(state, action);
+      return filterPaginate(deleteItem(state, action));
     case 'SET_PAGE':
       return Object.assign({}, state, {
         currentPage: action.payload.page,

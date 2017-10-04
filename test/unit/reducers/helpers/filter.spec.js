@@ -38,6 +38,7 @@ describe('Helper filter', () => {
     it('quando tem um termo', () => {
       const newState = Object.assign({}, state, { term: 'chery flex' });
       const result = filterHelper(newState);
+
       const expected = 8;
       const totalFiltered = result.data.filter(({ filtered }) => filtered).length;
       
