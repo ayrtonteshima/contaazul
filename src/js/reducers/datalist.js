@@ -24,6 +24,12 @@ const deleteItem = (state, { payload }) => {
   });
 };
 
+const addItemToBeDeleted = ({ itensWillBeDeleted }, id) => (
+  itensWillBeDeleted.indexOf(id) !== -1 ?
+    itensWillBeDeleted.filter(idList => idList !== id) :
+    [...itensWillBeDeleted, id]
+);
+
 const datalistReducer = (state, action) => {
   switch (action.type) {
     case 'GET_ALL':
@@ -36,6 +42,10 @@ const datalistReducer = (state, action) => {
         term: null,
         data: [action.payload.item, ...state.data],
       }));
+    case 'ADD_LIST_DELETE_ITEM':
+      return Object.assign({}, state, {
+        itensWillBeDeleted: addItemToBeDeleted(state, action.payload.id),
+      });
     case 'DELETE_ITEM':
       return filterPaginate(deleteItem(state, action));
     case 'SET_PAGE':

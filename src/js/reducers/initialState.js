@@ -4,4 +4,5 @@ export default {
   totalPages: 1,
   currentPage: 1,
   data: [],
+  itensWillBeDeleted: []
 };
