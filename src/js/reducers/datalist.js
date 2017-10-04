@@ -25,7 +25,18 @@ const deleteItem = (state, { payload }) => {
 };
 
 const addItemToBeDeleted = ({ itensWillBeDeleted }, ids) => {
-  if (Array.isArray(ids)) return ids;
+  if (Array.isArray(ids)) {
+    let set = new Set(itensWillBeDeleted);
+    ids.forEach((id) => {
+      if (set.has(id)) {
+        set.delete(id);
+      } else {
+        set.add(id);
+      }
+    });
+    return [...set];
+  }
+
   return itensWillBeDeleted.indexOf(ids) !== -1 ?
     itensWillBeDeleted.filter((itemId => itemId !== ids)) :
     [...itensWillBeDeleted, ids];
