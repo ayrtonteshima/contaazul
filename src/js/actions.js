@@ -21,6 +21,17 @@ const getAllFleets = () => (
   })
 );
 
+const addItemToBeDeleted = (id) => {
+  state = reducers(state, {
+    type: 'ADD_LIST_DELETE_ITEM',
+    payload: {
+      id,
+    }
+  });
+  return Promise.resolve(state);
+}
+
 export {
   getAllFleets,
+  addItemToBeDeleted,
 };
