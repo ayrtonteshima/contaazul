@@ -10,9 +10,9 @@ const renderItems = ({ data }) => {
   document.querySelector('.contaazul__table__body').innerHTML = html;
 };
 
-const renderPagination = ({ totalPages }) => {
+const renderPagination = ({ totalPages, currentPage }) => {
   const html = totalPages > 1 ?
-    templatePagination() :
+    templatePagination(totalPages, currentPage) :
     '';
   document.querySelector('.contaazul__pagination').innerHTML = html;
 };

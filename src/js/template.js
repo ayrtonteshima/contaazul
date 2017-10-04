@@ -21,10 +21,25 @@ const templateItem = (options) => {
   );
 };
 
-const templatePagination = () => (
-  `<li class="contaazul__pagination__item">
-    <a class="contaazul__pagination__item__link" href="#" title="">-</a>
+const templateItemPagination = currentPage => ind => (
+  `<li
+    class="contaazul__pagination__item
+    ${ind === (currentPage - 1) ? 'contaazul__pagination__item--active' : ''}"
+  >
+    <a class="contaazul__pagination__item__link" href="#" title="">${ind + 1}</a>
   </li>`
+);
+
+const templatePagination = (totalPages, currentPage) => (
+  `
+    <li class="contaazul__pagination__item">
+      <a class="contaazul__pagination__item__link" href="#" title="">&laquo;</a>
+    </li>
+    ${Array.from(Array(totalPages).keys()).map(templateItemPagination(currentPage)).join('')}
+    <li class="contaazul__pagination__item">
+      <a class="contaazul__pagination__item__link" href="#" title="">&raquo;</a>
+    </li>
+  `
 );
 
 export {
