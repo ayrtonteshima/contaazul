@@ -1,4 +1,4 @@
-const renderItem = (options) => {
+const templateItem = (options) => {
   const {
     marca,
     combustivel,
@@ -22,5 +22,5 @@ const renderItem = (options) => {
 };
 
 export {
-  renderItem,
+  templateItem,
 };
