@@ -1,31 +1,7 @@
 import './../scss/main.scss';
 import * as actions from './actions';
-import {
-  templateItem,
-  templatePagination,
-} from './template';
-import { compose, delegate } from './helpers';
-
-const renderItems = (state) => {
-  const { data } = state;
-  const html = data.map(templateItem).join('');
-  document.querySelector('.contaazul__table__body').innerHTML = html;
-
-  return state;
-};
-
-const renderPagination = (state) => {
-  const { totalPages, currentPage } = state;
-  const html = totalPages > 1 ?
-    templatePagination(totalPages, currentPage) :
-    '';
-
-  document.querySelector('.contaazul__pagination').innerHTML = html;
-
-  return state;
-};
-
-const render = compose(renderPagination, renderItems);
+import render from './renders';
+import { delegate } from './helpers';
 
 const markLinesToBeDeleted = ({ itensWillBeDeleted }) => {
   const items = [].slice.call(document.querySelectorAll('.contaazul__table__item'));
