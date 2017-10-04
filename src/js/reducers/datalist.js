@@ -25,11 +25,11 @@ const deleteItem = (state, { payload }) => {
 };
 
 const addItemToBeDeleted = ({ itensWillBeDeleted }, ids) => {
-  const res = ids.map((id) => {
-    return itensWillBeDeleted.indexOf(id) !== -1 ?
+  const res = ids.map(id => (
+    itensWillBeDeleted.indexOf(id) !== -1 ?
       itensWillBeDeleted.filter(idList => idList !== id) :
       [...itensWillBeDeleted, id]
-  })
+  ));
   return res.reduce((prev, current) => prev.concat(current));
 };
 
