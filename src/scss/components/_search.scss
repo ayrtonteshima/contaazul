@@ -1,5 +1,8 @@
 .contaazul__search {
-  display: flex;
+  &__form {
+    display: flex;
+  }
+
   &__textfield {
     width: 100%;
     min-width: 180px;

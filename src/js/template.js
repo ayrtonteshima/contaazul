@@ -1,4 +1,4 @@
-const templateItem = (options) => {
+const templateItem = (options, index) => {
   const {
     marca,
     combustivel,
@@ -10,7 +10,7 @@ const templateItem = (options) => {
 
   return (
     `<tr class="contaazul__table__item">
-      <td><input class="contaazul__checkbox" type="checkbox" name="car_plate[]" /></td>
+      <td><input data-id="${index + 1}" class="contaazul__checkbox" type="checkbox" name="car_plate[${index}]" /></td>
       <td>${placa}</td>
       <td>${modelo}</td>
       <td class="contaazul__hide-for-mobile">${marca}</td>

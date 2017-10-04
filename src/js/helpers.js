@@ -18,7 +18,7 @@ export const delegate = (eventName, className, cb) => {
     }
 
     if (checkTarget(target)) {
-      cb.call(target, event);
+      cb.call(target, Object.assign({}, event, { target }));
     }
   });
 };
