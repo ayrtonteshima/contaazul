@@ -25,6 +25,9 @@ const markLinesToBeDeleted = ({ itensWillBeDeleted }) => {
 
   document.querySelector('.contaazul__checkbox--all')
     .checked = itensWillBeDeleted.length === items.length;
+
+  document.querySelector('.contaazul__danger')
+    .disabled = itensWillBeDeleted.length <= 0;
 };
 
 const handleDeleteCheckbox = (event) => {
@@ -44,7 +47,20 @@ const handleDeleteAllCheckbox = () => {
     .then(markLinesToBeDeleted);
 };
 
+const handleBtnDelete = () => {
+  actions.deleteItens()
+    .then(render);
+};
+
+const handleToggleModal = show => () =>
+  document.querySelector('.contaazul__modal')
+    .classList.toggle('contaazul__modal--opened', show);
+
 const bindEvents = () => {
+  delegate('click', 'contaazul__modal__curtain', handleToggleModal(false));
+  delegate('click', 'contaazul__modal__box__close', handleToggleModal(false));
+  delegate('click', 'contaazul__success', handleToggleModal(true));
+  delegate('click', 'contaazul__danger', handleBtnDelete);
   delegate('change', 'contaazul__checkbox', handleDeleteCheckbox);
   delegate('change', 'contaazul__checkbox--all', handleDeleteAllCheckbox);
 };
