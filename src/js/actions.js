@@ -52,20 +52,24 @@ const deleteItens = () => {
 };
 
 const saveItem = item => (
-  new Promise(resolve => (
+  new Promise((resolve) => {
+    const itemWithId = Object.assign({}, item, {
+      id: state.data.length + 1,
+    });
+
     axios.post(url, item)
       .then(() => {
         state = reducers(state, {
           type: 'CREATE_ITEM',
-          payload: { item },
+          payload: { item: itemWithId },
         });
         return state;
       })
       .then((result) => {
         state = result;
         resolve(state);
-      })
-  ))
+      });
+  })
 );
 
 export {
