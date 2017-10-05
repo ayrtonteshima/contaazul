@@ -1,4 +1,4 @@
-const templateItem = (options, index) => {
+const templateItem = itensWillBeDeleted => (options, index) => {
   if (!options.filtered) return '';
 
   const {
@@ -11,9 +11,19 @@ const templateItem = (options, index) => {
     imagem,
   } = options;
 
+  const checkToDelete = itensWillBeDeleted.indexOf(id) !== -1;
+  const activeClass = checkToDelete ? 'contaazul__table__item--active' : '';
   return (
-    `<tr class="contaazul__table__item">
-      <td><input data-id="${id}" class="contaazul__checkbox" type="checkbox" name="car_plate[${index}]" /></td>
+    `<tr class="contaazul__table__item ${activeClass}">
+      <td>
+        <input
+          data-id="${id}"
+          class="contaazul__checkbox"
+          type="checkbox"
+          name="car_plate[${index}]"
+          ${checkToDelete ? 'checked="checked"' : ''}
+        />
+      </td>
       <td>${placa}</td>
       <td>${modelo}</td>
       <td class="contaazul__hide-for-mobile">${marca}</td>

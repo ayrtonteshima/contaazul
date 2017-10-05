@@ -5,11 +5,11 @@ import {
 import { compose } from './helpers';
 
 const renderItems = (state) => {
-  const { data, currentPage } = state;
+  const { data, currentPage, itensWillBeDeleted } = state;
 
   const html = data
     .filter(item => item.page === currentPage)
-    .map(templateItem).join('');
+    .map(templateItem(itensWillBeDeleted)).join('');
 
   document.querySelector('.contaazul__table__body').innerHTML = html;
 
