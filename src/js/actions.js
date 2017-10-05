@@ -4,10 +4,10 @@ import { URL_BASE_API } from './../configs/urls';
 
 let state;
 
+const url = `${URL_BASE_API}/fleets`;
+
 const getAllFleets = () => (
   new Promise((resolve) => {
-    const url = `${URL_BASE_API}/fleets`;
-
     const resolveAllFleets = (result) => {
       state = reducers(undefined, {
         type: 'GET_ALL',
@@ -31,7 +31,28 @@ const addItemToBeDeleted = (id) => {
   return Promise.resolve(state);
 };
 
+const deleteItens = () => {
+  const { itensWillBeDeleted } = state;
+  const mapPromises = itemId => axios.delete(`${url}/${itemId}`);
+  const promiseList = Promise.all(itensWillBeDeleted.map(mapPromises));
+
+  return new Promise((resolve) => {
+    promiseList.then(() =>
+      reducers(state, {
+        type: 'DELETE_ITEM',
+        payload: {
+          itensIds: itensWillBeDeleted,
+        },
+      }))
+      .then((result) => {
+        state = result;
+        resolve(state);
+      });
+  });
+};
+
 export {
   getAllFleets,
   addItemToBeDeleted,
+  deleteItens,
 };
