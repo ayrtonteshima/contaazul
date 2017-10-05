@@ -51,8 +51,26 @@ const deleteItens = () => {
   });
 };
 
+const saveItem = item => (
+  new Promise(resolve => (
+    axios.post(url, item)
+      .then(() => {
+        state = reducers(state, {
+          type: 'CREATE_ITEM',
+          payload: { item },
+        });
+        return state;
+      })
+      .then((result) => {
+        state = result;
+        resolve(state);
+      })
+  ))
+);
+
 export {
   getAllFleets,
   addItemToBeDeleted,
   deleteItens,
+  saveItem,
 };

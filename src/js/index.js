@@ -56,7 +56,22 @@ const handleToggleModal = show => () =>
   document.querySelector('.contaazul__modal')
     .classList.toggle('contaazul__modal--opened', show);
 
+
+const handleCreateItem = (event) => {
+  event.preventDefault();
+  const textFields = [].slice.call(document.querySelectorAll('.contaazul__form__textfield'));
+
+  const itemToSave = textFields
+    .map(({ name, value }) => ({ [name]: value }))
+    .reduce((prev, next) => Object.assign({}, prev, next));
+
+  actions.saveItem(itemToSave)
+    .then(render)
+    .then(handleToggleModal(false));
+};
+
 const bindEvents = () => {
+  delegate('submit', 'contaazul__form', handleCreateItem);
   delegate('click', 'contaazul__modal__curtain', handleToggleModal(false));
   delegate('click', 'contaazul__modal__box__close', handleToggleModal(false));
   delegate('click', 'contaazul__success', handleToggleModal(true));
