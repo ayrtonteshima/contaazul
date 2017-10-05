@@ -5,8 +5,12 @@ import {
 import { compose } from './helpers';
 
 const renderItems = (state) => {
-  const { data } = state;
-  const html = data.map(templateItem).join('');
+  const { data, currentPage } = state;
+
+  const html = data
+    .filter(item => item.page === currentPage)
+    .map(templateItem).join('');
+
   document.querySelector('.contaazul__table__body').innerHTML = html;
 
   return state;
