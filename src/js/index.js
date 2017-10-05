@@ -48,8 +48,11 @@ const handleDeleteAllCheckbox = () => {
 };
 
 const handleBtnDelete = () => {
-  actions.deleteItens()
-    .then(render);
+  actions.deleteItems()
+    .then(render)
+    .then(() => {
+      document.querySelector('.contaazul__danger').disabled = true;
+    });
 };
 
 const handleToggleModal = show => () =>
@@ -110,4 +113,3 @@ bindEvents();
 
 actions.getAllFleets()
   .then(render);
-

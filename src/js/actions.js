@@ -31,7 +31,7 @@ const getAllFleets = () => (
   })
 );
 
-const deleteItens = () => {
+const deleteItems = () => {
   const { itensWillBeDeleted } = state;
   const mapPromises = itemId => axios.delete(`${url}/${itemId}`);
   const promiseList = Promise.all(itensWillBeDeleted.map(mapPromises));
@@ -90,7 +90,7 @@ const setPaginationPage = page => (
 export {
   getAllFleets,
   addItemToBeDeleted,
-  deleteItens,
+  deleteItems,
   saveItem,
   filter,
   setPaginationPage,
