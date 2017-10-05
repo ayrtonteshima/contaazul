@@ -53,11 +53,11 @@
       border: 2px solid $highlightedBorderColor
     }
 
-    &--error, &--error:focus {
+    &:invalid:required:focus {
       border: 2px solid $dangerColor;
     }
 
-    &--valid, &--valid:focus {
+    &:valid:required {
       border: 2px solid $successColor;
     }
 
