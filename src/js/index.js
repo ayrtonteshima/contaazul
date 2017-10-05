@@ -11,8 +11,7 @@ const markLineToBeDeleted = itensWillBeDeleted => (item) => {
   const contains = itensWillBeDeleted.indexOf(parseInt(idItem, 10)) !== -1;
 
   item.classList.toggle('contaazul__table__item--active', contains);
-
-  document.querySelector('.contaazul__checkbox').checked = contains;
+  item.querySelector('.contaazul__checkbox').checked = contains; // eslint-disable-line no-param-reassign
 };
 
 const markLinesToBeDeleted = ({ itensWillBeDeleted }) => {
