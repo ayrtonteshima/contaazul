@@ -34,6 +34,12 @@ const templateItem = itensWillBeDeleted => (options, index) => {
   );
 };
 
+const templateEmptyTable = () => (
+  `<tr class="contaazul__table__item">
+      <td colspan="7" align="center">Sem resutado</td>
+    </td>`
+);
+
 const templateItemPagination = currentPage => ind => (
   `<li
     data-page="${ind + 1}"
@@ -59,4 +65,5 @@ const templatePagination = (totalPages, currentPage) => (
 export {
   templateItem,
   templatePagination,
+  templateEmptyTable,
 };

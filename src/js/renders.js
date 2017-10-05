@@ -1,15 +1,19 @@
 import {
   templateItem,
   templatePagination,
+  templateEmptyTable,
 } from './template';
 import { compose } from './helpers';
 
 const renderItems = (state) => {
   const { data, currentPage, itensWillBeDeleted } = state;
 
-  const html = data
-    .filter(item => item.page === currentPage)
-    .map(templateItem(itensWillBeDeleted)).join('');
+  const pageItems = data
+    .filter(item => item.page === currentPage);
+
+  const html = pageItems.length > 0 ?
+    pageItems.map(templateItem(itensWillBeDeleted)).join('') :
+    templateEmptyTable();
 
   document.querySelector('.contaazul__table__body').innerHTML = html;
 
