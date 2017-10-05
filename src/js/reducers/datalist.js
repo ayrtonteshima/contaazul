@@ -65,6 +65,10 @@ const datalistReducer = (state, action) => {
       return Object.assign({}, state, {
         currentPage: action.payload.page,
       });
+    case 'FILTER':
+      return filterPaginate(Object.assign({}, state, {
+        term: action.payload.term,
+      }));
     default:
       return state;
   }

@@ -8,6 +8,7 @@ const reducer = (state = initialState, action) => {
     case 'DELETE_ITEM':
     case 'GET_ALL':
     case 'ADD_LIST_DELETE_ITEM':
+    case 'FILTER':
       return datalistReducer(state, action);
     default:
       return state;

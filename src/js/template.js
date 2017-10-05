@@ -1,4 +1,6 @@
 const templateItem = (options, index) => {
+  if (!options.filtered) return '';
+
   const {
     id,
     marca,

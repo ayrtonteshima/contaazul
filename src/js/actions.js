@@ -72,9 +72,20 @@ const saveItem = item => (
   })
 );
 
+const filter = term => (
+  new Promise((resolve) => {
+    state = reducers(state, {
+      type: 'FILTER',
+      payload: { term },
+    });
+    resolve(state);
+  })
+);
+
 export {
   getAllFleets,
   addItemToBeDeleted,
   deleteItens,
   saveItem,
+  filter,
 };

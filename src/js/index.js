@@ -70,7 +70,16 @@ const handleCreateItem = (event) => {
     .then(handleToggleModal(false));
 };
 
+const handleSubmitSearch = (event) => {
+  event.preventDefault();
+  const { value } = document.querySelector('.contaazul__search__textfield');
+
+  actions.filter(value)
+    .then(render);
+};
+
 const bindEvents = () => {
+  delegate('submit', 'contaazul__search__form', handleSubmitSearch);
   delegate('submit', 'contaazul__form', handleCreateItem);
   delegate('click', 'contaazul__modal__curtain', handleToggleModal(false));
   delegate('click', 'contaazul__modal__box__close', handleToggleModal(false));
