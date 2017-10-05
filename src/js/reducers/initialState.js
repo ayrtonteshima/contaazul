@@ -1,6 +1,6 @@
 export default {
   term: null,
-  perPage: 1,
+  perPage: 5,
   totalPages: 1,
   currentPage: 1,
   data: [],
