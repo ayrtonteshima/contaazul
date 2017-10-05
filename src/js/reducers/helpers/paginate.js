@@ -1,10 +1,11 @@
-const mergeCorrectPage = state => (
-  Object.assign({}, state, {
-    currentPage: state.currentPage > state.totalPages ?
+const mergeCorrectPage = (state) => {
+  const currentPage = (state.currentPage <= 0) ? 1 : state.currentPage;
+  return Object.assign({}, state, {
+    currentPage: currentPage > state.totalPages ?
       state.totalPages :
-      state.currentPage,
-  })
-);
+      currentPage,
+  });
+};
 
 const incrementPage = ({ perPage }) => {
   let page = -1;
