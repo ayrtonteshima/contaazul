@@ -18,6 +18,7 @@ const deleteItem = (state, { payload }) => {
   }
 
   return Object.assign({}, state, {
+    itensWillBeDeleted: [],
     data: data.filter((item, index) => (
       indexesFound.indexOf(index) === -1
     )),
@@ -26,7 +27,7 @@ const deleteItem = (state, { payload }) => {
 
 const addItemToBeDeleted = ({ itensWillBeDeleted }, ids) => {
   if (Array.isArray(ids)) {
-    let set = new Set(itensWillBeDeleted);
+    const set = new Set(itensWillBeDeleted);
     ids.forEach((id) => {
       if (set.has(id)) {
         set.delete(id);
