@@ -17,18 +17,12 @@ const deleteItem = (state, { payload }) => {
     }
   }
 
-  const newState = filterPaginate(Object.assign({}, state, {
+  return filterPaginate(Object.assign({}, state, {
     itensWillBeDeleted: [],
     data: data.filter((item, index) => (
       indexesFound.indexOf(index) === -1
     )),
   }));
-
-  return Object.assign({}, newState, {
-    currentPage: newState.currentPage > newState.totalPages ?
-      newState.totalPages :
-      newState.currentPage,
-  });
 };
 
 const addItemToBeDeleted = ({ itensWillBeDeleted }, ids) => (

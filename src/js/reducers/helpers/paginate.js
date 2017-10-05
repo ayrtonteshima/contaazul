@@ -1,3 +1,11 @@
+const mergeCorrectPage = state => (
+  Object.assign({}, state, {
+    currentPage: state.currentPage > state.totalPages ?
+      state.totalPages :
+      state.currentPage,
+  })
+);
+
 const incrementPage = ({ perPage }) => {
   let page = -1;
   let ind = -1;
@@ -19,10 +27,10 @@ const paginate = (state) => {
 
   const totalPages = Math.ceil(newData.filter(({ page }) => page !== -1).length / perPage);
 
-  return Object.assign({}, state, {
+  return mergeCorrectPage(Object.assign({}, state, {
     totalPages,
     data: newData,
-  });
+  }));
 };
 
 export default paginate;
