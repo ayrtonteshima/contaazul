@@ -17,11 +17,17 @@ const deleteItem = (state, { payload }) => {
     }
   }
 
-  return Object.assign({}, state, {
+  const newState = filterPaginate(Object.assign({}, state, {
     itensWillBeDeleted: [],
     data: data.filter((item, index) => (
       indexesFound.indexOf(index) === -1
     )),
+  }));
+
+  return Object.assign({}, newState, {
+    currentPage: newState.currentPage > newState.totalPages ?
+      newState.totalPages :
+      newState.currentPage,
   });
 };
 
@@ -60,7 +66,7 @@ const datalistReducer = (state, action) => {
         itensWillBeDeleted: addItemToBeDeleted(state, action.payload.id),
       });
     case 'DELETE_ITEM':
-      return filterPaginate(deleteItem(state, action));
+      return deleteItem(state, action);
     case 'SET_PAGE':
       return Object.assign({}, state, {
         currentPage: action.payload.page,
