@@ -2,29 +2,13 @@ import './../scss/main.scss';
 import * as actions from './actions';
 import render from './renders';
 import { delegate } from './helpers';
-
-const markLineToBeDeleted = itensWillBeDeleted => (item) => {
-  const idItem = item
-    .querySelector('.contaazul__checkbox')
-    .getAttribute('data-id');
-
-  const contains = itensWillBeDeleted.indexOf(parseInt(idItem, 10)) !== -1;
-
-  item.classList.toggle('contaazul__table__item--active', contains);
-  item.querySelector('.contaazul__checkbox').checked = contains; // eslint-disable-line no-param-reassign
-};
-
-const markLinesToBeDeleted = ({ itensWillBeDeleted }) => {
-  const items = [].slice.call(document.querySelectorAll('.contaazul__table__item'));
-
-  items.forEach(markLineToBeDeleted(itensWillBeDeleted));
-
-  document.querySelector('.contaazul__checkbox--all')
-    .checked = itensWillBeDeleted.length === items.length;
-
-  document.querySelector('.contaazul__danger')
-    .disabled = itensWillBeDeleted.length <= 0;
-};
+import {
+  getCurrentPageIds,
+  markLinesToBeDeleted,
+  toggleDisabledBtnDelete,
+  toggleMarkedAllItems,
+  toggleModal,
+} from './domUtils';
 
 const handleDeleteCheckbox = (event) => {
   const { target } = event;
@@ -36,8 +20,7 @@ const handleDeleteCheckbox = (event) => {
 };
 
 const handleDeleteAllCheckbox = (event) => {
-  const items = [].slice.call(document.querySelectorAll('.contaazul__checkbox'));
-  const itensIds = items.map(item => parseInt(item.getAttribute('data-id'), 10));
+  const itensIds = getCurrentPageIds();
 
   const { checked } = event.target;
 
@@ -48,15 +31,11 @@ const handleDeleteAllCheckbox = (event) => {
 const handleBtnDelete = () => {
   actions.deleteItems()
     .then(render)
-    .then(() => {
-      document.querySelector('.contaazul__danger').disabled = true;
+    .then((state) => {
+      toggleDisabledBtnDelete(state);
+      toggleMarkedAllItems(state);
     });
 };
-
-const handleToggleModal = show => () =>
-  document.querySelector('.contaazul__modal')
-    .classList.toggle('contaazul__modal--opened', show);
-
 
 const handleCreateItem = (event) => {
   event.preventDefault();
@@ -68,7 +47,7 @@ const handleCreateItem = (event) => {
 
   actions.saveItem(itemToSave)
     .then(render)
-    .then(handleToggleModal(false));
+    .then(toggleModal(false));
 };
 
 const handleSubmitSearch = (event) => {
@@ -92,16 +71,17 @@ const handleClickPagination = (event) => {
   const page = parseInt(target.getAttribute('data-page'), 10);
 
   actions.setPaginationPage(page)
-    .then(render);
+    .then(render)
+    .then(toggleMarkedAllItems);
 };
 
 const bindEvents = () => {
   delegate('click', 'contaazul__pagination__item', handleClickPagination);
   delegate('submit', 'contaazul__search__form', handleSubmitSearch);
   delegate('submit', 'contaazul__form', handleCreateItem);
-  delegate('click', 'contaazul__modal__curtain', handleToggleModal(false));
-  delegate('click', 'contaazul__modal__box__close', handleToggleModal(false));
-  delegate('click', 'contaazul__success', handleToggleModal(true));
+  delegate('click', 'contaazul__modal__curtain', toggleModal(false));
+  delegate('click', 'contaazul__modal__box__close', toggleModal(false));
+  delegate('click', 'contaazul__success', toggleModal(true));
   delegate('click', 'contaazul__danger', handleBtnDelete);
   delegate('change', 'contaazul__checkbox', handleDeleteCheckbox);
   delegate('change', 'contaazul__checkbox--all', handleDeleteAllCheckbox);

@@ -1,5 +1,6 @@
 const testItemWithFilter = (item, term) => {
   const { combustivel, marca } = item;
+
   const strRegexp = `(${term.replace(/\s{1}/g, '|')})`;
 
   const regx = new RegExp(strRegexp, 'gi');
