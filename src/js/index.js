@@ -12,10 +12,7 @@ const markLineToBeDeleted = itensWillBeDeleted => (item) => {
 
   item.classList.toggle('contaazul__table__item--active', contains);
 
-  if (contains) {
-    item.querySelector('.contaazul__checkbox')
-      .setAttribute('checked', contains);
-  }
+  document.querySelector('.contaazul__checkbox').checked = contains;
 };
 
 const markLinesToBeDeleted = ({ itensWillBeDeleted }) => {
@@ -39,11 +36,13 @@ const handleDeleteCheckbox = (event) => {
     .then(markLinesToBeDeleted);
 };
 
-const handleDeleteAllCheckbox = () => {
+const handleDeleteAllCheckbox = (event) => {
   const items = [].slice.call(document.querySelectorAll('.contaazul__checkbox'));
   const itensIds = items.map(item => parseInt(item.getAttribute('data-id'), 10));
 
-  actions.addItemToBeDeleted(itensIds)
+  const { checked } = event.target;
+
+  actions.addAllItemsToBeDeleted(itensIds, checked)
     .then(markLinesToBeDeleted);
 };
 

@@ -31,23 +31,16 @@ const deleteItem = (state, { payload }) => {
   });
 };
 
-const addItemToBeDeleted = ({ itensWillBeDeleted }, ids) => {
-  if (Array.isArray(ids)) {
-    const set = new Set(itensWillBeDeleted);
-    ids.forEach((id) => {
-      if (set.has(id)) {
-        set.delete(id);
-      } else {
-        set.add(id);
-      }
-    });
-    return [...set];
-  }
-
-  return itensWillBeDeleted.indexOf(ids) !== -1 ?
+const addItemToBeDeleted = ({ itensWillBeDeleted }, ids) => (
+  itensWillBeDeleted.indexOf(ids) !== -1 ?
     itensWillBeDeleted.filter((itemId => itemId !== ids)) :
-    [...itensWillBeDeleted, ids];
-};
+    [...itensWillBeDeleted, ids]
+);
+
+const addAllItemsToBeDeleted = ({ itensWillBeDeleted }, { itensIds, checked }) => (
+  checked ? [...(new Set([...itensWillBeDeleted, ...itensIds]))] :
+    itensWillBeDeleted.filter((itemId => itensIds.indexOf(itemId) === -1))
+);
 
 const datalistReducer = (state, action) => {
   switch (action.type) {
@@ -64,6 +57,10 @@ const datalistReducer = (state, action) => {
     case 'ADD_LIST_DELETE_ITEM':
       return Object.assign({}, state, {
         itensWillBeDeleted: addItemToBeDeleted(state, action.payload.id),
+      });
+    case 'ADD_LIST_DELETE_ALL_ITEMS':
+      return Object.assign({}, state, {
+        itensWillBeDeleted: addAllItemsToBeDeleted(state, action.payload),
       });
     case 'DELETE_ITEM':
       return deleteItem(state, action);

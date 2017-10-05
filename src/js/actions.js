@@ -73,6 +73,13 @@ const addItemToBeDeleted = id => (
   })
 );
 
+const addAllItemsToBeDeleted = (itensIds, checked) => (
+  dispatch({
+    type: 'ADD_LIST_DELETE_ALL_ITEMS',
+    payload: { itensIds, checked },
+  })
+);
+
 const filter = term => (
   dispatch({
     type: 'FILTER',
@@ -90,6 +97,7 @@ const setPaginationPage = page => (
 export {
   getAllFleets,
   addItemToBeDeleted,
+  addAllItemsToBeDeleted,
   deleteItems,
   saveItem,
   filter,
