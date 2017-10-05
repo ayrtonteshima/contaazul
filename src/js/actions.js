@@ -82,10 +82,21 @@ const filter = term => (
   })
 );
 
+const setPaginationPage = page => (
+  new Promise((resolve) => {
+    state = reducers(state, {
+      type: 'SET_PAGE',
+      payload: { page },
+    });
+    resolve(state);
+  })
+);
+
 export {
   getAllFleets,
   addItemToBeDeleted,
   deleteItens,
   saveItem,
   filter,
+  setPaginationPage,
 };

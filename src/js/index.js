@@ -78,7 +78,24 @@ const handleSubmitSearch = (event) => {
     .then(render);
 };
 
+const handleClickPagination = (event) => {
+  event.preventDefault();
+  event.stopPropagation();
+
+  let { target } = event;
+
+  target = target.classList.contains('contaazul__pagination__item') ?
+    target :
+    target.parentNode;
+
+  const page = parseInt(target.getAttribute('data-page'), 10);
+
+  actions.setPaginationPage(page)
+    .then(render);
+};
+
 const bindEvents = () => {
+  delegate('click', 'contaazul__pagination__item', handleClickPagination);
   delegate('submit', 'contaazul__search__form', handleSubmitSearch);
   delegate('submit', 'contaazul__form', handleCreateItem);
   delegate('click', 'contaazul__modal__curtain', handleToggleModal(false));

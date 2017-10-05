@@ -26,6 +26,7 @@ const templateItem = (options, index) => {
 
 const templateItemPagination = currentPage => ind => (
   `<li
+    data-page="${ind + 1}"
     class="contaazul__pagination__item
     ${ind === (currentPage - 1) ? 'contaazul__pagination__item--active' : ''}"
   >
@@ -35,11 +36,11 @@ const templateItemPagination = currentPage => ind => (
 
 const templatePagination = (totalPages, currentPage) => (
   `
-    <li class="contaazul__pagination__item">
+    <li data-page="1" class="contaazul__pagination__item">
       <a class="contaazul__pagination__item__link" href="#" title="">&laquo;</a>
     </li>
     ${Array.from(Array(totalPages).keys()).map(templateItemPagination(currentPage)).join('')}
-    <li class="contaazul__pagination__item">
+    <li data-page="${totalPages}" class="contaazul__pagination__item">
       <a class="contaazul__pagination__item__link" href="#" title="">&raquo;</a>
     </li>
   `

@@ -1,8 +1,8 @@
 export default {
   term: null,
-  perPage: 5,
+  perPage: 1,
   totalPages: 1,
   currentPage: 1,
   data: [],
-  itensWillBeDeleted: []
+  itensWillBeDeleted: [],
 };
