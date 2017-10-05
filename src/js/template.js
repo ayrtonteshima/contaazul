@@ -25,11 +25,11 @@ const templateItem = itensWillBeDeleted => (options, index) => {
         />
       </td>
       <td>${placa}</td>
-      <td>${modelo}</td>
-      <td class="contaazul__hide-for-mobile">${marca}</td>
+      <td class="contaazul__hide-for-mobile">${modelo}</td>
+      <td>${marca}</td>
       <td class="contaazul__hide-for-mobile">${imagem || 'Sem foto'}</td>
-      <td class="contaazul__hide-for-mobile">${combustivel}</td>
-      <td class="contaazul__align-right">${valor}</td>
+      <td>${combustivel}</td>
+      <td class="contaazul__align-right contaazul__hide-for-mobile">${valor}</td>
     </tr>`
   );
 };
