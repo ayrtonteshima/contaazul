@@ -1,6 +1,6 @@
 # Desafio ContaAzul
 
-Desafio feito com muito cuidado e carinho sendo 100% vanilla js.
+Desafio feito com muito cuidado e carinho sendo 100% vanilla e responsivo.
 
 ## Back-end
 O projeto foi feito end-to-end priorizando o front-end. No back-end foi utilizado também javascript com express para roteamento, tanto do html quando da API responsável pelo SPA.
@@ -26,6 +26,11 @@ Comecei o desenvolvimento 100% TDD, com alguns testes na API e depois no desenvo
 ## Mais
 Tentei fazer ao longo de todo o projeto micro commits, acho interessante para conseguirem acompanhar todo o meu desenvolvimento.
 
+## Sobre o uso
+O projeto segue o pedido, a partir do quinto item a paginação surge. A busca filtra os campos `marca` e `combustível`,  o único detalhe é que não é uma busca com `"AND"` e sim com `"OR"`. Isso quer dizer que ao pesquisar por 'volkswagen flex', ele irá retornar tanto os itens que só tenham volkswagem, outros que só tenham flex e os que tiverem ambos, isso foi uma escolha.
+
+A opção de marcar todos os campos funciona perfeitamente mesmo com a paginação.
+
 ## Dependências
 - Node v7.10.0
 
@@ -40,6 +45,3 @@ Acesse: http://localhost.com:3000
 
 ### Para desenvolver
 - make watch
-
-
-
