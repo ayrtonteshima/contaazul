@@ -43,7 +43,7 @@ Quando acessa a primeira vez, cria um item ou deleta, ele sempre faz um request 
 
 Execute o `make test` em outra aba do terminal com o servidor rodando.
 
-Acesse: http://localhost.com:3000
+Acesse: http://localhost:3000
 
 ### Para desenvolver
 - make watch
