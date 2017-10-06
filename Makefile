@@ -5,7 +5,7 @@ run:
 	make build && yarn start || npm start
 
 watch:
-	yarn watch || npm watch
+	yarn watch || npm run watch
 
 build:
 	yarn build || npm run build
