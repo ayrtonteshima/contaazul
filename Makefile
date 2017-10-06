@@ -4,6 +4,9 @@ setup:
 run:
 	yarn start || npm start
 
+watch:
+	yarn watch || npm watch
+
 test:
 	yarn test || npm test
 
