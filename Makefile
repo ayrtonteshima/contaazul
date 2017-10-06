@@ -2,13 +2,16 @@ setup:
 	yarn install || npm install
 
 run:
-	yarn start || npm start
+	make build && yarn start || npm start
 
 watch:
 	yarn watch || npm watch
+
+build:
+	yarn build || npm run build
 
 test:
 	yarn test || npm test
 
 
-.PHONY: test
+.PHONY: test build watch run setup
