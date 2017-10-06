@@ -43,11 +43,18 @@ const toggleModal = show => () =>
   document.querySelector('.contaazul__modal')
     .classList.toggle('contaazul__modal--opened', show);
 
+const clearModaltextFields = textFields => () => {
+  textFields.forEach((textField) => {
+    textField.value = ''; // eslint-disable-line no-param-reassign
+  });
+};
+
 export {
   getCurrentPageIds,
   toggleDisabledBtnDelete,
   toggleMarkedAllItems,
   markLinesToBeDeleted,
   toggleModal,
+  clearModaltextFields,
 };
 
