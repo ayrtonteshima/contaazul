@@ -31,6 +31,8 @@ O projeto segue o pedido, a partir do quinto item a paginação surge. A busca f
 
 A opção de marcar todos os campos funciona perfeitamente mesmo com a paginação.
 
+Quando acessa a primeira vez, cria um item ou deleta, ele sempre faz um request para a API para executar a operação e depois renderiza o resultado na tela.
+
 ## Dependências
 - Node v7.10.0
 
@@ -45,3 +47,6 @@ Acesse: http://localhost.com:3000
 
 ### Para desenvolver
 - make watch
+
+### Possíveis problemas
+Se gerar erro no build `make run` do projeto devido a `node-sass`. Por favor executar o comando `npm rebuild node-sass --force` e depois rodar `make run` novamente.
