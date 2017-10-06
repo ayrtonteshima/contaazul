@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Desafio front-end ContaAzul",
   "main": "index.js",
-  "repository": "ssh://git@bitbucket.org/ayrtonteshima/desafio-contaazul.git",
+  "repository": "ssh://git@github.com:ayrtonteshima/desafio-contaazul.git",
   "author": "ayrtonteshima <ayrtonteshima@gmail.com>",
   "license": "MIT",
   "scripts": {
