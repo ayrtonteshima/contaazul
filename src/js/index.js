@@ -8,6 +8,7 @@ import {
   toggleDisabledBtnDelete,
   toggleMarkedAllItems,
   toggleModal,
+  clearModaltextFields,
 } from './domUtils';
 
 const handleDeleteCheckbox = (event) => {
@@ -47,7 +48,8 @@ const handleCreateItem = (event) => {
 
   actions.saveItem(itemToSave)
     .then(render)
-    .then(toggleModal(false));
+    .then(toggleModal(false))
+    .then(clearModaltextFields(textFields));
 };
 
 const handleSubmitSearch = (event) => {
